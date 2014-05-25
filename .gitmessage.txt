@@ -1,0 +1,5 @@
+Summary line
+
+What happened
+
+[Ticket: X]

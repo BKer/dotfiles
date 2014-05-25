@@ -1,0 +1,20 @@
+[user]
+  name = Bart Kerkvliet
+  email = bkerkvliet@gmail.com
+[core]
+  editor = vim
+[commit]
+  template = /home/bart/.gitmessage.txt
+[color]
+  ui = true
+[alias]
+  whatsnew = !sh -c 'git shortlog --format=\"%h %s\" $1..HEAD' -
+  cancel = reset --soft HEAD^
+  oops = reset --soft HEAD^ --
+  unstage = reset HEAD --
+  unadd = reset HEAD --
+  unadd-new = rm --cached
+  wtf = log --pretty=format:"%C(auto,yellow)%h%C(auto)%d%C(auto,reset)\\ by\\ %C(auto,blue)%cn%C(auto,reset),\\ %C(auto,cyan)%ar%C(auto,reset)%n\\ %s%n" --stat
+  omgwtfbbq = !sh -c '~/Scripts/git-omgwtfbbq'
+[diff]
+	algorithm = patience
