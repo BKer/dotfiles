@@ -1,4 +1,4 @@
-<!---  Updated: Tue 27 May 2014 09:23:07 CEST by bart@burgberg
+<!---  Updated: Tue 27 May 2014 09:27:37 CEST by bart@burgberg
 My dotfiles
 ===========
 A repository containing my dotfiles (.files).
