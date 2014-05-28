@@ -1,5 +1,5 @@
 <!---
-  Updated: Tue 27 May 2014 09:29:07 CEST by bart@burgberg
+  Updated: Wed 28 May 2014 13:04:25 CEST by bart@burgberg
 -->
 My dotfiles
 ===========
@@ -48,5 +48,10 @@ Vundle as follows:
 After installing Vundle you can run:
 
 `vim +PluginInstall +qall`
+
+Two plug-ins need compiling, so head over to `~/.vim/bundle/vimproc.vim` and run
+`make`. Afterwards go to`~/.vim/bundle/YouCompleteMe and run `./install.sh`. If
+you are a C or C++ programmer you can run the install script with some options,
+but check the YMC documentation for those.
 
 <!---  vim: set ft=markdown ts=2 sw=2 tw=80 foldmethod=syntax : -->
