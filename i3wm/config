@@ -1,0 +1,248 @@
+#  Updated: Wed 28 May 2014 21:47:22 CEST by bart@burgberg
+#
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+font -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 10
+
+# Set the modifier key (Mod4 = Windows Key)
+set $mod Mod4
+
+# Start-up programs {{{
+exec --no-startup-id xcompmgr -F &  # Enable fancy effects (slightly transparent urxvt terminal)
+exec --no-startup-id polipo -c ~/.poliporc &           # Local polipo caching proxy
+exec --no-startup-id sh ~/Scripts/randomWallpaper.sh & # Cycle through different wallpapers
+exec --no-startup-id xautolock -time 10 -locker '/home/bart/Scripts/lockScreen.sh' & # Lock the screen after 10 minutes of inactivity
+exec --no-startup-id /usr/bin/start-pulseaudio-x11 & # Start pulseaudio daemon
+
+# Open a vim instance named scratchpad. Load the file ~/.Scratchpad
+# I've disabled the swap file, so vim won't complain about an existing swap
+# file.
+# The scratchpad shows up with $Mod - (=minus key)
+exec --no-startup-id urxvtc -name scratchpad -e /usr/bin/vim -n ~/.Scratchpad
+for_window [class="URxvt" instance="scratchpad"] move scratchpad
+# }}}
+
+# Border style {{{
+## Window border style
+##--------------------
+# bn: border normal, with window title bar
+# bp: border only, no window title bar
+# bb: no border or window title bar
+new_window 1pixel
+
+## Colours
+##--------
+#colourclass                border      bckgrnd     text
+client.focused              #1793D0     #1793D0     #FFFFFF
+client.focused_inactive     #000000     #333333     #FFFFFF
+client.unfocused            #000000     #333333     #FFFFFF
+client.urgent               #F92672     #F92672     #FFFFFF
+# The  bar is configured in the bar {...} partbindsym $mod+semicolon focus right
+# }}}
+
+## Program Shortcuts / bindsyms {{{
+##------------------
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec urxvtc
+
+# $mod + Shift + W starts a webbrowser
+bindsym $mod+Shift+w exec firefox
+
+# $mod + Shift + E starts a mail client
+bindsym $mod+Shift+m exec urxvt -e mutt
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start dmenu (a program launcher)
+# I think the $mod+Shift+d version kinda stinks, so hardly use it.
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "#000000" -nf "#ffffff" -sb "#000000" -sf "#1793D0" -p "Run: " -b -fn -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -nb "#000000" -nf "#ffffff" -sb "#000000" -sf "#1793D0" -p "Run: " -b -fn -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1'
+
+# Power settings
+# Lock the screen
+bindsym $mod+Mod1+l exec /home/bart/Scripts/lockScreen.sh
+bindsym $mod+Mod1+p exec sudo systemctl poweroff
+bindsym $mod+Mod1+r exec sudo systemctl reboot
+bindsym $mod+Mod1+h exec sudo pm-hibernate
+
+# Make a printscreen
+bindsym Print exec --no-startup-id scrot
+
+# change focus (vi movement style)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys, but you shouldn't really.
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window (vi movement style again)
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys and again you shouldn't
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Ctrl+h split h
+
+# split in vertical orientation
+bindsym $mod+Ctrl+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindcode $mod+d focus child
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+#
+# # Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
+# reload the configuration file
+bindsym $mod+Shift+C reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+R restart
+# exit i3 (logs you out of your X session)
+# Ask to exit i3, just in case you hit it by accident (happened a few times ;))
+bindsym $mod+Shift+E exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# }}}
+
+# Workspaces {{{
+# Remember where you came from (i.e. use same key to go back)
+workspace_auto_back_and_forth no
+
+# switch to workspace
+bindsym $mod+1 workspace "1: Terminal"
+bindsym $mod+2 workspace "2: Development"
+bindsym $mod+3 workspace "3: Internet"
+bindsym $mod+4 workspace "4: Mail"
+bindsym $mod+5 workspace "5: Office"
+bindsym $mod+6 workspace "6: Media"
+bindsym $mod+7 workspace "7: Graphics"
+bindsym $mod+8 workspace "8: Chat"
+bindsym $mod+9 workspace "9: Games"
+bindsym $mod+0 workspace "10: Misc"
+
+# move focused container to workspace (same numbers as above)
+bindsym $mod+Shift+exclam move container to workspace "1: Terminal"
+bindsym $mod+Shift+at move container to workspace "2: Development"
+bindsym $mod+Shift+numbersign move container to workspace "3: Internet"
+bindsym $mod+Shift+dollar move container to workspace "4: Mail"
+bindsym $mod+Shift+percent move container to workspace "5: Office"
+bindsym $mod+Shift+dead_circumflex move container to workspace "6: Media"
+bindsym $mod+Shift+ampersand move container to workspace "7: Graphics"
+bindsym $mod+Shift+asterisk move container to workspace "8: Chat"
+bindsym $mod+Shift+parenleft move container to workspace "9: Games"
+bindsym $mod+Shift+parenright move container to workspace "10: Misc"
+
+# Assign workspaces to instances, so they will always start on a pre-defined
+# workspace.
+assign [class="URxvt"] 1: Terminal
+assign [class="Gvim"] 2: Development
+assign [class="URxvt" instance="vim"] 2: Development
+assign [class="Eclipse"] 2: Development
+assign [class="Meld"] 2: Development
+assign [class="chromium"] 3: Internet
+assign [class="Chromium"] 3: Internet
+assign [class="Firefox"] 3: Internet
+assign [class="Mail"] 4: Mail
+assign [class="URxvt" instance="mutt"] 4: Mail
+assign [class="libreoffice"] 5: Office
+assign [class="gimp"] 7: Graphics
+assign [class="URxvt" instance="irssi"] 8: Chat
+# }}}
+
+# Resize function {{{
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        #bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+# }}}
+
+# i3bar {{{
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command $HOME/.i3/conky-i3bar-wrapper.sh
+
+    position top
+
+    colors {
+        # Colourclass                   foreground  background  text
+        focused_workspace               #1793D0     #1793D0     #FFFFFF
+        active_workspace                #333333     #333333     #999999
+        inactive_workspace              #333333     #333333     #999999
+        urgent_workspace                #F92672     #F92672     #FFFFFF
+    }
+}
+# }}}
+
+#  vim: set ft=conf ts=2 sw=2 tw=80 foldmethod=marker :
