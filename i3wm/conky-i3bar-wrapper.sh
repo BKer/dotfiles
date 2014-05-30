@@ -10,5 +10,5 @@ echo '['
 echo '[],'
 
 # Now Conky will "take over" and will provide the information to display.
-exec conky -c $HOME/.config/conky/conkyjson
+exec conky -c $HOME/.i3/conkyjson
 
