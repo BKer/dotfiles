@@ -86,5 +86,5 @@ ${if_match ${new_mails $HOME/.mail/Gmail/INBOX} != 0}
 ${endif}
 # TIME AND DATE
 {"full_text":"|","color":"\#1793d0","separator":false,"separator_block_width":12},\
-{"full_text":"${time %a, %b %d %H:%M}","short_text":"${time %H:%M}","color":"\#ffffff","separator":false,"separator_block_width":6}\
+{"full_text":"${time %a, %b %d %H:%M}","color":"\#ffffff","separator":false,"separator_block_width":6}\
 ],
