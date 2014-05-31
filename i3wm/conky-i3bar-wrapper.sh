@@ -6,9 +6,6 @@ echo '{"version":1}'
 # Open the (endless) array
 echo '['
 
-# Send an empty array first.
-echo '[],'
-
 # Now Conky will "take over" and will provide the information to display.
 exec conky -c $HOME/.i3/conkyjson
 
