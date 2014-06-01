@@ -1,5 +1,5 @@
 <!---
-  Updated: Sun 01 Jun 2014 18:54:39 CEST by bart@burgberg
+  Updated: Sun 01 Jun 2014 18:59:30 CEST by bart@burgberg
 -->
 My dotfiles
 ===========
@@ -12,8 +12,8 @@ you checkout at least the start-up section and the bindings.
 
 The lockScreen.sh script contains the following code:
 
-```Bash
-#!/bin/bash
+```Shell
+#!/bin/sh
 scrot /tmp/screen_locked.png
 convert /tmp/screen_locked.png -scale 10% -scale 1000% /tmp/screen_locked_blur.png
 i3lock -i /tmp/screen_locked_blur.png
@@ -27,8 +27,8 @@ credit.
 My gitconfig file calls a script `~/Scripts/git-omgwtfbbq`, you will find the
 content of this script below:
 
-```Bash
-#!/bin/bash
+```Shell
+#!/bin/sh
 
 # Get confirmation from user
 read -p "This will erase any work done and reset to HEAD. Continue? [yN] " -n1
