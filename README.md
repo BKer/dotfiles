@@ -1,9 +1,25 @@
 <!---
-  Updated: Wed 28 May 2014 13:06:21 CEST by bart@burgberg
+  Updated: Sun 01 Jun 2014 18:51:39 CEST by bart@burgberg
 -->
 My dotfiles
 ===========
 A repository containing my dotfiles (.files).
+
+i3-wm
+-----
+It is sufficient to symlink the i3wm folder to `~/.i3/`. However I would suggest
+you checkout at least the start-up section and the bindings.
+
+The lockScreen.sh script contains the following code:
+
+```Bash
+scrot /tmp/screen_locked.png
+convert /tmp/screen_locked.png -scale 10% -scale 1000% /tmp/screen_locked_blur.png
+i3lock -i /tmp/screen_locked_blur.png
+```
+
+Unfortunately I don't remember where I got it from, so I'm sorry for not giving
+credit.
 
 .gitconfig
 ----------
@@ -24,6 +40,8 @@ echo ''
 # Reset everything
 git clean -f && (git rebase --abort || git reset --hard)
 ```
+
+Don't remember where I found this script, so sorry for not giving credit.
 
 Of course change name and e-mail when you copy-paste the config file.
 
