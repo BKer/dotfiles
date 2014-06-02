@@ -1,0 +1,64 @@
+# Filename:       $HOME/.zshrc.pre
+# Purpose:        Config file for zsh (z shell)
+#                 Sourced before /etc/zshrc (grml)
+#
+# Updated: Mon 02 Jun 2014 22:52:20 CEST by bart@burgberg
+#
+### --- --- --- SHOW BATTER STATUS IN RPROMPT {{{
+# Show battery status in RPROMT
+
+# Where is the ACPI command?
+ACPI=`which acpi 2> /dev/null`
+
+# Execute acpi using the found command, if not found just output to /dev/null
+VAR=`$ACPI 2> /dev/null`
+
+# Does the output contain the word Battery? Y/N
+if [[ $VAR != *Battery* ]]; then
+  BATTERY=1
+else
+  BATTERY=0
+fi
+### --- --- --- SHOW BATTERY STATUS IN RPROMPT }}}
+
+### --- --- --- ALIASES {{{
+### SSH Key related {{{
+# Aliases to unlock SSH key
+# Also added git, because it needs the key from time to time.
+alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_ecdsa) && ssh'
+alias scp='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_ecdsa) && scp'
+alias git='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_ecdsa) && git'
+### }}}
+### ALIASES {{{
+# TODO: Check aliases and move to this file
+. ~/.config/zsh/aliases
+### }}}
+### --- --- --- ALIASES }}}
+
+### --- --- --- Functions {{{
+# TODO: check functions and move to this file
+. ~/.config/zsh/functions
+### --- --- --- Functions }}}
+
+### --- --- --- Plug-ins {{{
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/doc/pkgfile/command-not-found.zsh
+#### Source plug-ins }}}
+
+### --- --- --- Profile {{{
+# TODO: Check profile settings and move to this file
+#. ~/.config/zsh/profile
+### --- --- --- Profile }}}
+
+### --- --- --- START X/Tmux {{{
+if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx -- /usr/bin/X -nolisten tcp :0 -novtswitch vt1 &> ~/.xlog
+  logout
+elif [[ $TERM = "linux" ]] || [[ -n "$SSH_CLIENT" ]]; then # Start screen on other consoles
+  if [[ -z ${TMUX} ]]; then # Are we already in a screen session?
+    tmux attach || tmux new-session
+    logout
+  fi
+fi
+### --- --- --- START X/Tmux }}}
+#  vim: set ft=zsh ts=2 sw=2 tw=80 foldmethod=marker :
