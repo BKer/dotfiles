@@ -2,7 +2,7 @@
 # Purpose:        Config file for zsh (z shell)
 #                 Sourced before /etc/zshrc (grml)
 #
-# Updated: Mon 02 Jun 2014 22:57:04 CEST by bart@burgberg
+# Updated: Tue 03 Jun 2014 09:05:35 CEST by bart@burgberg
 #
 ### --- --- --- SHOW BATTER STATUS IN RPROMPT {{{
 # Show battery status in RPROMT
@@ -11,10 +11,10 @@
 ACPI=`which acpi 2> /dev/null`
 
 # Execute acpi using the found command, if not found just output to /dev/null
-VAR=`$ACPI 2> /dev/null`
+ACPIOUTPUT=`$ACPI 2> /dev/null`
 
 # Does the output contain the word Battery? Y/N
-if [[ $VAR != *Battery* ]]; then
+if [[ $ACPIOUTPUT != *Battery* ]]; then
   BATTERY=0
 else
   BATTERY=1
