@@ -1,5 +1,5 @@
 <!---
-  Updated: Sun 01 Jun 2014 19:01:35 CEST by bart@burgberg
+  Updated: Wed 04 Jun 2014 22:15:03 CEST by bart@burgberg
 -->
 My dotfiles
 ===========
@@ -72,5 +72,10 @@ Two plug-ins need compiling, so head over to `~/.vim/bundle/vimproc.vim` and run
 `make`. Afterwards go to`~/.vim/bundle/YouCompleteMe` and run `./install.sh`. If
 you are a C or C++ programmer you can run the install script with some options,
 but check the YMC documentation for those.
+
+.zshrc.pre
+----------
+I've named this file .zshrc.pre, because I use the grml bundle. It still needs a
+bit of love, before this file becomes decent.
 
 <!---  vim: set ft=markdown ts=2 sw=2 tw=80 foldmethod=syntax : -->
