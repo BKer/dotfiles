@@ -2,7 +2,7 @@
 # Purpose:        Config file for zsh (z shell)
 #                 Sourced before /etc/zshrc (grml)
 #
-# Updated: Tue 03 Jun 2014 09:05:35 CEST by bart@burgberg
+# Updated: Thu 05 Jun 2014 22:13:05 CEST by bart@burgberg
 #
 ### --- --- --- SHOW BATTER STATUS IN RPROMPT {{{
 # Show battery status in RPROMT
@@ -29,10 +29,87 @@ alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_ecd
 alias scp='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_ecdsa) && scp'
 alias git='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_ecdsa) && git'
 ### }}}
-### ALIASES {{{
-# TODO: Check aliases and move to this file
-. ~/.config/zsh/aliases
-### }}}
+### Basic commands {{{
+alias df='df -h'
+alias du='du -c -h'
+# Verbose and also create parent directories if needed
+alias mkdir='mkdir -p -v'
+# Use vim as a pager
+alias less='/usr/share/vim/vim74/macros/less.sh'
+# Starting with a space, so they don't get added to the history
+# Interactive and verbose mode
+alias mv=' mv -iv'
+alias rm=' rm -Iv --one-file-system'
+
+alias c='pygmentize -O style=monokai -f console256 -g'
+alias CAT='pygmentize -O style=monokai -f console256 -g'
+
+# Programs kind of
+alias openports='netstat --all --numeric --programs --inet'
+alias cpv='rsync -poghb --backup-dir=/tmp/rsync -e /dev/null --progress'
+
+# MPV
+alias mpvfs='mpv --fs'
+alias mpvns='mpv --no-audio'
+
+# Pacman
+alias pacupg='sudo pacman -Syu'                # Synchronize with repositories before upgrading packages that are out of date on the local system.
+alias pacin='sudo pacman -S'                   # Install specific package(s) from the repositories
+alias pacins='sudo pacman -U'                  # Install specific package not from the repositories but from a file 
+alias pacre='sudo pacman -R'                   # Remove the specified package(s), retaining its configuration(s) and required dependencies
+alias pacrem='sudo pacman -Rns'                # Remove the specified package(s), its configuration(s) and unneeded dependencies
+alias pacrep='pacman -Si'                      # Display information about a given package in the repositories
+#pacreps is not needed, because -> pacman -Sis
+alias pacloc='pacman -Qi'                      # Display information about a given package in the local database
+#alias paclocs same principle as pacreps
+alias pacupd='sudo pacman -Syy && sudo abs'    # Update and refresh the local package and ABS databases against repositories
+alias pacinsd='sudo pacman -S --asdeps'        # Install given package(s) as dependencies of another package
+alias pacmir='sudo pacman -Syy'                # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+alias pacdeorp='sudo pacman -Rsc $(pacman -Qtdq)' # Remove orphaned packages
+alias pacorp='pacman -Qtdq'                    # Display orphaned packages
+alias pacgroup='pacman -Qg'                    # List the packages in a group
+alias pacgroups='pacman -Qg | sed "s/ .*//" | sort | uniq' # List all install groups
+alias paclist='pacman -Ql'                     # List the files belonging to a package
+alias pacfile='pacman -Qo'                     # List the package a file belongs to
+
+# Power management
+if [[ $UID != 0 ]]; then
+    alias hibernate='sudo pm-hibernate'
+    alias reboot='sudo reboot'
+    alias shutdown='sudo shutdown -h now'
+    alias suspend='sudo pm-suspend'
+fi
+
+# "Security"
+alias pw='echo `< /dev/urandom tr -cd "[:graph:]" | head -c8`'
+
+# VirtualBox
+alias vboxmanager='vboxwebsrv --logfile ~/VBoxLog.log --pidfile /run/vboxwebsrv.pid --host 127.0.0.1 & firefox http://localhost/phpvirtualbox'
+### Basic commands }}}
+### Suffix aliases {{{
+# Images
+alias -s bmp='feh'
+alias -s gif='animate'
+alias -s jpg='feh'
+alias -s jpeg='feh'
+alias -s png='feh'
+# LibreOffice
+alias -s doc='libreoffice'
+alias -s docx='libreoffice'
+alias -s ppt='libreoffice'
+alias -s pptx='libreoffice'
+alias -s xls='libreoffice'
+alias -s xlsx='libreoffice'
+# Music
+alias -s mp3='mpv'
+# Web
+alias -s com='firefox'
+alias -s net='firefox'
+alias -s org='firefox'
+alias -s nl='firefox'
+# Others
+alias -s pdf='zathura'
+### Suffix aliases }}}
 ### --- --- --- ALIASES }}}
 
 ### --- --- --- Functions {{{
