@@ -2,7 +2,7 @@
 # Purpose:        Config file for zsh (z shell)
 #                 Sourced before /etc/zshrc (grml)
 #
-# Updated: Thu 05 Jun 2014 22:13:05 CEST by bart@burgberg
+# Updated: Fri 06 Jun 2014 08:47:48 CEST by bart@burgberg
 #
 ### --- --- --- SHOW BATTER STATUS IN RPROMPT {{{
 # Show battery status in RPROMT
@@ -61,7 +61,7 @@ alias pacrem='sudo pacman -Rns'                # Remove the specified package(s)
 alias pacrep='pacman -Si'                      # Display information about a given package in the repositories
 #pacreps is not needed, because -> pacman -Sis
 alias pacloc='pacman -Qi'                      # Display information about a given package in the local database
-#alias paclocs same principle as pacreps
+alias paclocs='pacman -Qs'                     # Search for package(s) in the local database
 alias pacupd='sudo pacman -Syy && sudo abs'    # Update and refresh the local package and ABS databases against repositories
 alias pacinsd='sudo pacman -S --asdeps'        # Install given package(s) as dependencies of another package
 alias pacmir='sudo pacman -Syy'                # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
@@ -93,13 +93,21 @@ alias -s gif='animate'
 alias -s jpg='feh'
 alias -s jpeg='feh'
 alias -s png='feh'
-# LibreOffice
+## LibreOffice
+# Word formats
 alias -s doc='libreoffice'
 alias -s docx='libreoffice'
 alias -s ppt='libreoffice'
 alias -s pptx='libreoffice'
 alias -s xls='libreoffice'
 alias -s xlsx='libreoffice'
+# Open Document Format
+alias -s odb='libreoffice'
+alias -s odf='libreoffice'
+alias -s odg='libreoffice'
+alias -s odp='libreoffice'
+alias -s ods='libreoffice'
+alias -s odt='libreoffice'
 # Music
 alias -s mp3='mpv'
 # Web
