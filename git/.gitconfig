@@ -3,6 +3,8 @@
   email = bkerkvliet@gmail.com
 [core]
   editor = vim
+	autocrlf = input
+	safecrlf = true
 [commit]
   template = /home/bart/.gitmessage.txt
 [color]
