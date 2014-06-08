@@ -1,0 +1,184 @@
+!---------------------------------------------------------------------------
+! File: ~/.Xresources
+! Author: Bart Kerkvliet
+! Updated: Sun 08 Jun 2014 21:52:44 CEST by bart@burgberg
+!---------------------------------------------------------------------------
+
+! Settings
+
+Xft.autohint:                 0
+Xft.lcdfilter:                lcddefault
+Xft.hintstyle:                hintfull
+Xft.hinting:                  1
+Xft.antialias:                1
+Xft.rgba:                     rgb
+
+! URLlauncher settings
+URxvt*urlLauncher:            /usr/bin/firefox
+URxvt*matcher.button:         1
+
+! Related to the scratch pad (i3-wm)
+scratchpad*scrollBar:         false
+scratchpad*externalBorder:    false
+scratchpad*internalBorder:    false
+
+! colours
+!black
+*color0:        #1c1c1c
+*color8:        #4d4d4d
+!red
+*color1:        #D81860
+*color9:        #F00060
+!green
+*color2:        #60FF60
+*color10:       #70FF70
+!yellow
+*color3:        #f9fd75
+*color11:       #f9fd75
+!blue
+*color4:        #4695c8
+*color12:       #4e98c8
+!magenta
+*color5:        #a78edb
+*color13:       #ae99db
+!cyan
+*color6:        #43afce
+*color14:       #50b2ce
+!white
+*color7:        #f3ebe2
+*color15:       #eeeeee
+
+! URxvt settings
+! They say it is useful to use this name when you use tmux.
+URxvt*termName:                       screen-256color
+! URxvt*geometry:                       geometry
+! URxvt*chdir:                          string
+URxvt*reverseVideo:                   false
+! Again they say this is useful when using tmux, to get your login file sourced.
+URxvt*loginShell:                     true
+URxvt*jumpScroll:                     false
+URxvt*skipScroll:                     false
+! URxvt*pastableTabs:                   boolean
+URxvt*scrollstyle:                    plain
+URxvt*scrollBar:                      true
+URxvt*scrollBar_right:                true
+! URxvt*scrollBar_floating:             boolean
+! URxvt*scrollBar_align:                mode
+! URxvt*thickness:                      number
+URxvt*scrollTtyOutput:                false
+URxvt*scrollTtyKeypress:              true
+URxvt*scrollWithBuffer:               false
+! URxvt*inheritPixmap:                  boolean
+! Native transparency, using xcompmgr
+URxvt*transparent:                    false
+! URxvt*tintColor:                      color
+! URxvt*shading:                        number
+! URxvt*blurRadius:                     HxV
+URxvt*fading:                         25
+URxvt*fadeColor:                      black
+! URxvt*utmpInhibit:                    boolean
+! URxvt*urgentOnBell:                   boolean
+! URxvt*visualBell:                     boolean
+! URxvt*mapAlert:                       boolean
+! URxvt*meta8:                          boolean
+! URxvt*mouseWheelScrollPage:           boolean
+! URxvt*tripleclickwords:               boolean
+! URxvt*insecure:                       boolean
+! URxvt*cursorUnderline:                boolean
+URxvt*cursorBlink:                    true
+! URxvt*pointerBlank:                   boolean
+URxvt*background:                     rgba:0000/0000/0000/cccc
+URxvt*foreground:                     white
+! URxvt*color0:                         color
+! URxvt*color1:                         color
+! URxvt*color2:                         color
+! URxvt*color3:                         color
+! URxvt*color4:                         color
+! URxvt*color5:                         color
+! URxvt*color6:                         color
+! URxvt*color7:                         color
+! URxvt*color8:                         color
+! URxvt*color9:                         color
+! URxvt*color10:                        color
+! URxvt*color11:                        color
+! URxvt*color12:                        color
+! URxvt*color13:                        color
+! URxvt*color14:                        color
+! URxvt*color15:                        color
+! URxvt*colorBD:                        color
+! URxvt*colorIT:                        color
+! URxvt*colorUL:                        color
+! URxvt*colorRV:                        color
+! URxvt*underlineColor:                 color
+! URxvt*scrollColor:                    color
+! URxvt*troughColor:                    color
+! URxvt*highlightColor:                 color
+! URxvt*highlightTextColor:             color
+! URxvt*cursorColor:                    color
+! URxvt*cursorColor2:                   color
+URxvt*pointerColor:                   black
+URxvt*pointerColor2:                  white
+! URxvt*borderColor:                    color
+! URxvt*iconFile:                       file
+URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=9:,xft:PowerlineSymbols:size=9
+! URxvt*boldFont:                       fontname
+! URxvt*italicFont:                     fontname
+! URxvt*boldItalicFont:                 fontname
+! URxvt*intensityStyles:                boolean
+! URxvt*inputMethod:                    name
+! URxvt*preeditType:                    style
+! URxvt*imLocale:                       string
+! URxvt*imFont:                         fontname
+URxvt*title:                          Terminal
+! URxvt*iconName:                       string
+URxvt*saveLines:                      8192
+! URxvt*buffered:                       boolean
+URxvt*depth:                          32
+! URxvt*visual:                         number
+! URxvt*transient-for:                  windowid
+! URxvt*override-redirect:              boolean
+! URxvt*hold:                           boolean
+! URxvt*externalBorder:                 number
+! URxvt*internalBorder:                 number
+! URxvt*borderLess:                     boolean
+! URxvt*lineSpace:                      number
+URxvt*letterSpace:                    -1
+! URxvt*skipBuiltinGlyphs:              boolean
+! URxvt*pointerBlankDelay:              number
+! URxvt*backspacekey:                   string
+! URxvt*deletekey:                      string
+! URxvt*print-pipe:                     string
+! URxvt*modifier:                       modifier
+! URxvt*cutchars:                       string
+! URxvt*answerbackString:               string
+! URxvt*secondaryScreen:                boolean
+! URxvt*secondaryScroll:                boolean
+! URxvt*perl-lib:                       /usr/lib/urxvt/perl/
+! URxvt*perl-eval:                      perl-eval
+! URxvt*perl-ext-common:                default,matcher
+! URxvt*perl-ext:                       string
+! URxvt*iso14755:                       boolean
+! URxvt*iso14755_52:                    boolean
+! URxvt*xrm:                            string
+! URxvt*keysym.sym:                     keysym
+! URxvt*background.border:              boolean
+! URxvt*background.expr:                string
+! URxvt*background.interval:            seconds
+! URxvt*bell-command:                   string
+! URxvt*matcher.button:                 string
+! URxvt*matcher.launcher:               string
+! URxvt*matcher.launcher.*:             string
+! URxvt*matcher.pattern.*:              string
+! URxvt*matcher.rend.*:                 string
+! URxvt*remote-clipboard.fetch:         string
+! URxvt*remote-clipboard.store:         string
+! URxvt*searchable-scrollback:          string
+! URxvt*selection-autotransform.*:      string
+! URxvt*selection-pastebin.cmd:         string
+! URxvt*selection-pastebin.url:         string
+! URxvt*selection.pattern-0:            string
+! URxvt*tab-bg:                         colour
+! URxvt*tab-fg:                         colour
+! URxvt*tabbar-bg:                      colour
+! URxvt*tabbar-fg:                      colour
+! URxvt*url-launcher:                   string
