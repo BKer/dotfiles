@@ -1,5 +1,5 @@
 <!---
-  Updated: Wed 04 Jun 2014 22:15:03 CEST by bart@burgberg
+  Updated: Sat 07 Jun 2014 21:26:51 CEST by bart@burgberg
 -->
 My dotfiles
 ===========
@@ -73,9 +73,10 @@ Two plug-ins need compiling, so head over to `~/.vim/bundle/vimproc.vim` and run
 you are a C or C++ programmer you can run the install script with some options,
 but check the YMC documentation for those.
 
-.zshrc.pre
+.zshrc
 ----------
-I've named this file .zshrc.pre, because I use the grml bundle. It still needs a
-bit of love, before this file becomes decent.
+Ditched the zsh config in favour of the Prezto set-up. You can find my fork on
+GitHub as well. In my fork I keep my own set-up. Also I've still got grml
+installed.
 
 <!---  vim: set ft=markdown ts=2 sw=2 tw=80 foldmethod=syntax : -->
