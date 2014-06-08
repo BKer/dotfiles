@@ -1,7 +1,7 @@
 !---------------------------------------------------------------------------
 ! File: ~/.Xresources
 ! Author: Bart Kerkvliet
-! Updated: Sun 08 Jun 2014 21:52:44 CEST by bart@burgberg
+! Updated: Sun 08 Jun 2014 22:40:09 CEST by bart@burgberg
 !---------------------------------------------------------------------------
 
 ! Settings
@@ -56,8 +56,8 @@ URxvt*termName:                       screen-256color
 URxvt*reverseVideo:                   false
 ! Again they say this is useful when using tmux, to get your login file sourced.
 URxvt*loginShell:                     true
-URxvt*jumpScroll:                     false
-URxvt*skipScroll:                     false
+URxvt*jumpScroll:                     true
+URxvt*skipScroll:                     true
 ! URxvt*pastableTabs:                   boolean
 URxvt*scrollstyle:                    plain
 URxvt*scrollBar:                      true
