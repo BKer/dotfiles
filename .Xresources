@@ -1,21 +1,25 @@
 !---------------------------------------------------------------------------
 ! File: ~/.Xresources
 ! Author: Bart Kerkvliet
-! Updated: Sun 08 Jun 2014 22:40:09 CEST by bart@burgberg
+! Updated: Mon 09 Jun 2014 21:04:10 CEST by bart@burgberg
 !---------------------------------------------------------------------------
 
 ! Settings
+!
+! Just in case I actually need xterm, so I can read stuff
+xterm*background:             black
+xterm*foreground:             white
+xterm*utf8:                   2
+xterm*termName:               xterm-256color
 
-Xft.autohint:                 0
-Xft.lcdfilter:                lcddefault
-Xft.hintstyle:                hintfull
-Xft.hinting:                  1
-Xft.antialias:                1
-Xft.rgba:                     rgb
+Xft*autohint:                 false
+Xft*lcdfilter:                lcddefault
+Xft*hintstyle:                hintfull
+Xft*hinting:                  full
+Xft*antialias:                true
+Xft*rgba:                     rgb
 
-! URLlauncher settings
-URxvt*urlLauncher:            /usr/bin/firefox
-URxvt*matcher.button:         1
+Xcursor.theme:                Vanilla-DMZ-AA
 
 ! Related to the scratch pad (i3-wm)
 scratchpad*scrollBar:         false
@@ -84,27 +88,11 @@ URxvt*fadeColor:                      black
 ! URxvt*mouseWheelScrollPage:           boolean
 ! URxvt*tripleclickwords:               boolean
 ! URxvt*insecure:                       boolean
-! URxvt*cursorUnderline:                boolean
+URxvt*cursorUnderline:                false
 URxvt*cursorBlink:                    true
 ! URxvt*pointerBlank:                   boolean
 URxvt*background:                     rgba:0000/0000/0000/cccc
 URxvt*foreground:                     white
-! URxvt*color0:                         color
-! URxvt*color1:                         color
-! URxvt*color2:                         color
-! URxvt*color3:                         color
-! URxvt*color4:                         color
-! URxvt*color5:                         color
-! URxvt*color6:                         color
-! URxvt*color7:                         color
-! URxvt*color8:                         color
-! URxvt*color9:                         color
-! URxvt*color10:                        color
-! URxvt*color11:                        color
-! URxvt*color12:                        color
-! URxvt*color13:                        color
-! URxvt*color14:                        color
-! URxvt*color15:                        color
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
@@ -132,7 +120,7 @@ URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:siz
 URxvt*title:                          Terminal
 ! URxvt*iconName:                       string
 URxvt*saveLines:                      8192
-! URxvt*buffered:                       boolean
+URxvt*buffered:                       true
 URxvt*depth:                          32
 ! URxvt*visual:                         number
 ! URxvt*transient-for:                  windowid
@@ -165,7 +153,7 @@ URxvt*letterSpace:                    -1
 ! URxvt*background.expr:                string
 ! URxvt*background.interval:            seconds
 ! URxvt*bell-command:                   string
-! URxvt*matcher.button:                 string
+URxvt*matcher.button:                 1
 ! URxvt*matcher.launcher:               string
 ! URxvt*matcher.launcher.*:             string
 ! URxvt*matcher.pattern.*:              string
@@ -181,4 +169,4 @@ URxvt*letterSpace:                    -1
 ! URxvt*tab-fg:                         colour
 ! URxvt*tabbar-bg:                      colour
 ! URxvt*tabbar-fg:                      colour
-! URxvt*url-launcher:                   string
+URxvt*url-launcher:                   /usr/bin/firefox -new-tab
