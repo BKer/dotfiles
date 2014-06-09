@@ -1,5 +1,5 @@
 <!---
-  Updated: Sat 07 Jun 2014 21:26:51 CEST by bart@burgberg
+  Updated: Sun 08 Jun 2014 21:59:23 CEST by bart@burgberg
 -->
 My dotfiles
 ===========
@@ -72,6 +72,11 @@ Two plug-ins need compiling, so head over to `~/.vim/bundle/vimproc.vim` and run
 `make`. Afterwards go to`~/.vim/bundle/YouCompleteMe` and run `./install.sh`. If
 you are a C or C++ programmer you can run the install script with some options,
 but check the YMC documentation for those.
+
+.Xresources
+-----------
+My Xresources file, contains things like setting the transparency of my URxvt
+terminal.
 
 .zshrc
 ----------
