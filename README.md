@@ -1,5 +1,5 @@
 <!---
-  Updated: Sun 08 Jun 2014 21:59:23 CEST by bart@burgberg
+  Updated: Wed 11 Jun 2014 22:09:11 CEST by bart@burgberg
 -->
 My dotfiles
 ===========
@@ -56,6 +56,11 @@ My configuration makes use of PowerLine. I've got the PowerLine repository
 checked out in ~/.tmux/powerline.
 You may need the Powerline patched fonts as well. You can find about them in the
 PowerLine repository.
+
+.vifm
+-----
+My config file for vifm. vifm is a vi style file manager. In my config I did set
+some programs to use when opening certain files.
 
 .vimrc
 ------
