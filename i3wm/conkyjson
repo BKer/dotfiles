@@ -47,13 +47,13 @@ TEXT
 # DISK
 {"full_text":"Disk","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"$fs_used","color":
-  ${if_match $fs_used_perc<80}"\#ffffff"${else}"\#f92672"${endif}
+  ${if_match $fs_used_perc<90}"\#ffffff"${else}"\#f92672"${endif}
   ,"separator":false,"separator_block_width":3},\
 {"full_text":"/","color":
-  ${if_match $fs_used_perc<80}"\#ffffff"${else}"\#f92672"${endif}
+  ${if_match $fs_used_perc<90}"\#ffffff"${else}"\#f92672"${endif}
   ,"separator":false,"separator_block_width":3},\
 {"full_text":"$fs_size","color":
-  ${if_match $fs_used_perc<80}"\#ffffff"${else}"\#f92672"${endif}
+  ${if_match $fs_used_perc<90}"\#ffffff"${else}"\#f92672"${endif}
   ,"separator":false,"separator_block_width":12},\
 # PROCESSES
 {"full_text":"Proc","color":"\#1793d0","separator":false,"separator_block_width":6},\
