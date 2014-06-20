@@ -1,7 +1,7 @@
 " Modeline and Notes ------------------- {{{
 "
 "   vim: set ft=vim ts=2 sw=2 tw=80 foldmethod=marker :
-"   Updated: Sun 25 May 2014 21:13:23 CEST by bart@burgberg
+"   Updated: Fri 20 Jun 2014 23:51:07 CEST by bart@burgberg
 "
 "   This .vimrc is largely inspired by the vimrc found in the GitHub
 "   repository of Steve Francia's Vim Distribution (spf13-vim)(spf13-vim/.vimrc)
@@ -765,7 +765,7 @@
 " }}}
 " GUI ---------------------------------- {{{
     if has('gui_running')
-        set     guifont=Inconsolata
+        set     guifont=Inconsolata\ for\ Powerline
         " Turn the tool bar off
         set     guioptions-=T
         " Turn the menu bar off
