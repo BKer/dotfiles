@@ -22,7 +22,7 @@ ln -s $BASEDIR/.zprezto ~/
 ln -s $BASEDIR/.Xresources ~/
 ln -s $BASEDIR/.vimrc ~/
 ln -s $BASEDIR/git/.gitconfig ~/
-ln -s $BASEDIR/git/.gitmessage ~/
+ln -s $BASEDIR/git/.gitmessage.txt ~/
 
 setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
