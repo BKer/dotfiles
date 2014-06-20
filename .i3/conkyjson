@@ -33,6 +33,7 @@ TEXT
 {"full_text":"%","color":
   ${if_match ${cpu cpu0}<90}"\#ffffff"${else}"\#f92672"${endif}
   ,"separator":false,"separator_block_width":6},\
+# TEMP
 {"full_text":"T","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"${platform coretemp.0 temp 2}","color":"\#ffffff","separator":false,"separator_block_width":0},\
 {"full_text":"°C","color":"\#ffffff","separator":false,"separator_block_width":12},\
