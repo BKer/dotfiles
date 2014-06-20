@@ -1,5 +1,5 @@
 [submodule "zsh/.zprezto"]
-	path = zsh/.zprezto
+	path = .zprezto
 	url = git://github.com/BKer/prezto.git
 [submodule ".tmux/powerline"]
 	path = .tmux/powerline
