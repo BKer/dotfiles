@@ -1,7 +1,7 @@
 !---------------------------------------------------------------------------
 ! File: ~/.Xresources
 ! Author: Bart Kerkvliet
-! Updated: Mon 09 Jun 2014 21:04:10 CEST by bart@burgberg
+! Updated: Sat 21 Jun 2014 16:07:13 CEST by bart@burgberg
 !---------------------------------------------------------------------------
 
 ! Settings
@@ -11,6 +11,7 @@ xterm*background:             black
 xterm*foreground:             white
 xterm*utf8:                   2
 xterm*termName:               xterm-256color
+xterm*locale:                 true
 
 Xft*autohint:                 false
 Xft*lcdfilter:                lcddefault
@@ -108,7 +109,7 @@ URxvt*pointerColor:                   black
 URxvt*pointerColor2:                  white
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=9:,xft:PowerlineSymbols:size=9
+URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=8:,xft:PowerlineSymbols:size=8
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
