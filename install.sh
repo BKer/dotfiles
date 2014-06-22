@@ -38,7 +38,7 @@ fi
 ### TMUX
 tmux=`which tmux 2> /dev/null`
 tmuxoutput=`$tmux -h 2> /dev/null`
-if [[ $tmuxoutput == *usage* ]]; then
+if [[ $tmuxoutput == tmux* ]]; then
   echo "tmux found, symlinking"
   ln -s $BASEDIR/.tmux ~/
   ln -s $BASEDIR/.tmux.conf ~/
@@ -87,7 +87,7 @@ fi
 ### ZSH
 zsh=`which zsh 2> /dev/null`
 zshoutput=`$zsh --version 2> /dev/null`
-if [[ $zshoutput == version* ]]; then
+if [[ $zshoutput == zsh* ]]; then
   echo "zsh found, symlinking"
   ln -s $BASEDIR/.zprezto ~/
   setopt EXTENDED_GLOB
