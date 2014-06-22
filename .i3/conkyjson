@@ -23,9 +23,11 @@ if_up_strictness address
 TEXT
 
 [\
-# CPU
+### CPU
 {"full_text":"CPU","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"$freq MHz","color":"\#ffffff","separator":false,"separator_block_width":6},\
+
+# CPU LOAD
 {"full_text":"L","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"${cpu cpu0}","color":
   ${if_match ${cpu cpu0}<90}"\#ffffff"${else}"\#f92672"${endif}
@@ -33,11 +35,20 @@ TEXT
 {"full_text":"%","color":
   ${if_match ${cpu cpu0}<90}"\#ffffff"${else}"\#f92672"${endif}
   ,"separator":false,"separator_block_width":6},\
-# TEMP
+
+# CPU TEMP
+# For some reason the platform coretemp doesn't always work, so check if it is
+# empty. If it is, fall back to sensors.
 {"full_text":"T","color":"\#1793d0","separator":false,"separator_block_width":6},\
-{"full_text":"${platform coretemp.0 temp 2}","color":"\#ffffff","separator":false,"separator_block_width":0},\
+${if_empty ${platform coretemp.0 temp 2}}
+# Although listed first, this is the fall back method!
+  {"full_text":"${exec /usr/bin/sensors | grep 'Core 0' | paste -s | sed 's/^Core 0:[ \t]*//' | cut -c2-3}","color":"\#ffffff","separator":false,"separator_block_width":0},\
+${else}
+  {"full_text":"${platform coretemp.0 temp 2}","color":"\#ffffff","separator":false,"separator_block_width":0},\
+${endif}
 {"full_text":"°C","color":"\#ffffff","separator":false,"separator_block_width":12},\
-# MEMORY
+
+### MEMORY
 {"full_text":"Mem","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"$memperc","color":
   ${if_match $memperc<90}"\#ffffff"${else}"\#f92672"${endif}
@@ -45,7 +56,8 @@ TEXT
 {"full_text":"%","color":
   ${if_match $memperc<90}"\#ffffff"${else}"\#f92672"${endif}
   ,"separator":false,"separator_block_width":12},\
-# DISK
+
+### DISK
 {"full_text":"Disk","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"$fs_used","color":
   ${if_match $fs_used_perc<90}"\#ffffff"${else}"\#f92672"${endif}
@@ -56,36 +68,40 @@ TEXT
 {"full_text":"$fs_size","color":
   ${if_match $fs_used_perc<90}"\#ffffff"${else}"\#f92672"${endif}
   ,"separator":false,"separator_block_width":12},\
-# PROCESSES
+
+### PROCESSES
 {"full_text":"Proc","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"$processes","color":"\#ffffff","separator":false,"separator_block_width":6},\
 {"full_text":"Run","color":"\#1793d0","separator":false,"separator_block_width":6},\
 {"full_text":"$running_processes","color":"\#ffffff","separator":false,"separator_block_width":12},\
-# NETWORK
+
+### NETWORK
 # WIRELESS
 ${if_up wlp14s0}
-{"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
-{"full_text":"${addr wlp14s0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
+  {"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
+  {"full_text":"${addr wlp14s0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
 ${endif}
 ${if_up wlan0}
-{"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
-{"full_text":"${addr wlan0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
+  {"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
+  {"full_text":"${addr wlan0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
 ${endif}
 # WIRED
 ${if_up enp20s0}
-{"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
-{"full_text":"${addr enp20s0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
+  {"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
+  {"full_text":"${addr enp20s0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
 ${endif}
 ${if_up eth0}
-{"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
-{"full_text":"${addr eth0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
+  {"full_text":"IP","color":"\#1793d0","separator":false,"separator_block_width":6},\
+  {"full_text":"${addr eth0}","color":"\#ffffff","separator":false,"separator_block_width":12},\
 ${endif}
-# MAIL
+
+### MAIL
 ${if_match ${new_mails $HOME/.mail/Gmail/INBOX} != 0}
-{"full_text":"Mail","color":"\#1793d0","separator":false,"separator_block_width":6},\
-{"full_text":"${new_mails $HOME/.mail/Gmail/INBOX}","color":"\#ffffff","separator":false,"separator_block_width":12},\
+  {"full_text":"Mail","color":"\#1793d0","separator":false,"separator_block_width":6},\
+  {"full_text":"${new_mails $HOME/.mail/Gmail/INBOX}","color":"\#ffffff","separator":false,"separator_block_width":12},\
 ${endif}
-# TIME AND DATE
+
+### TIME AND DATE
 {"full_text":"|","color":"\#1793d0","separator":false,"separator_block_width":12},\
 {"full_text":"${time %a, %b %d %H:%M}","color":"\#ffffff","separator":false,"separator_block_width":6}\
 ],
