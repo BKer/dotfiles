@@ -124,6 +124,7 @@ command zip zip -r %f.zip %f
 command run !! ./%f
 command make !!make
 command vgrep vim "+grep %a"
+command link ln -s %d/%f %D
 
 " The file type is for the default programs to be used with
 " a file extension.
