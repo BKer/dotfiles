@@ -25,7 +25,6 @@ set $mod Mod4
 
 # Start-up programs {{{
 exec --no-startup-id xcompmgr -F &  # Enable fancy effects (slightly transparent urxvt terminal)
-exec --no-startup-id polipo -c ~/.poliporc &           # Local polipo caching proxy
 exec --no-startup-id sh ~/Scripts/randomWallpaper.sh & # Cycle through different wallpapers
 exec --no-startup-id xautolock -time 10 -locker '/home/bart/Scripts/lockScreen.sh' & # Lock the screen after 10 minutes of inactivity
 exec --no-startup-id /usr/bin/start-pulseaudio-x11 & # Start pulseaudio daemon
