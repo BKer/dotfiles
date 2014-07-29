@@ -9,8 +9,7 @@ cd $BASEDIR
 
 ### GIT
 git=`which git 2> /dev/null`
-gitoutput=`$git --version 2> /dev/null`
-if [[ $gitoutput == *version* ]]; then
+if [[ -f $git ]]; then
   echo "git found"
   echo "Getting submodules"
   git submodule update --init --recursive
@@ -26,8 +25,7 @@ fi
 
 ### I3-WM
 i3wm=`which i3 2> /dev/null`
-i3output=`$i3wm -v 2> /dev/null`
-if [[ $i3output == *version* ]]; then
+if [[ -f $i3wm ]]; then
   echo "i3 found, symlinking"
   ln -s $BASEDIR/.i3 ~/
 else
@@ -37,8 +35,7 @@ fi
 
 ### TMUX
 tmux=`which tmux 2> /dev/null`
-tmuxoutput=`$tmux -h 2> /dev/null`
-if [[ $tmuxoutput == tmux* ]]; then
+if [[ -f $tmux ]]; then
   echo "tmux found, symlinking"
   ln -s $BASEDIR/.tmux ~/
   ln -s $BASEDIR/.tmux.conf ~/
@@ -47,11 +44,9 @@ else
 fi
 
 
-
 ### VIFM
 vifm=`which vifm 2> /dev/null`
-vifmoutput=`$vifm -v 2> /dev/null`
-if [[ $vifmoutput == *Version* ]]; then
+if [[ -f $vifm ]]; then
   echo "vifm found, symlinking"
   ln -s $BASEDIR/.vifm ~/
 else
@@ -61,8 +56,7 @@ fi
 
 ### VIM
 vim=`which vim 2> /dev/null`
-vimoutput=`$vim --version 2> /dev/null`
-if [[ $vimoutput == *IMproved* ]]; then
+if [[ -f $vim ]]; then
   echo "vim found"
   ln -s $BASEDIR/.vimrc ~/
 
@@ -75,8 +69,7 @@ fi
 
 ### XRDB
 xrdb=`which xrdb 2> /dev/null`
-xrdboutput=`$xrdb -version 2> /dev/null`
-if [[ $xrdboutput == xrdb* ]]; then
+if [[ -f $xrdb ]]; then
   echo "xrdb found, symlinking Xresources"
   ln -s $BASEDIR/.Xresources ~/
 else
@@ -86,8 +79,7 @@ fi
 
 ### ZSH
 zsh=`which zsh 2> /dev/null`
-zshoutput=`$zsh --version 2> /dev/null`
-if [[ $zshoutput == zsh* ]]; then
+if [[ -f $zsh ]]; then
   echo "zsh found, symlinking"
   ln -s $BASEDIR/.zprezto ~/
   setopt EXTENDED_GLOB
