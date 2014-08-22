@@ -1,7 +1,7 @@
 !---------------------------------------------------------------------------
 ! File: ~/.Xresources
 ! Author: Bart Kerkvliet
-! Updated: Sat 21 Jun 2014 16:07:13 CEST by bart@burgberg
+! Updated: Fri 22 Aug 2014 21:59:06 CEST by bart@burgberg
 !---------------------------------------------------------------------------
 
 ! Settings
@@ -109,7 +109,7 @@ URxvt*pointerColor:                   black
 URxvt*pointerColor2:                  white
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=8:,xft:PowerlineSymbols:size=8
+URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=10:,xft:PowerlineSymbols:size=10
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
