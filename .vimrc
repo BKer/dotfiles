@@ -652,8 +652,11 @@
     " }}}
     " Syntastic ------------------------ {{{
         let g:syntastic_enable_signs=1 "show markers next to each error/warning
+        let g:syntastic_error_symbol='EE'
+        let g:syntastic_warning_symbol='WW'
         let g:syntastic_auto_loc_list=0 "don't pop up the Errors list automatically
         let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
+        let g:syntastic_phpcs_conf="--standard=PSR2"
         let g:syntastic_css_checkers = ['recess', 'prettycss', 'csslint']
     " }}}
     " Tabularize ----------------------- {{{
