@@ -3,3 +3,5 @@ Summary line
 What happened
 
 [Ticket: X]
+
+Signed-off-by: Bart Kerkvliet <bkerkvliet@gmail.com>
