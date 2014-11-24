@@ -1,7 +1,7 @@
 !---------------------------------------------------------------------------
 ! File: ~/.Xresources
 ! Author: Bart Kerkvliet
-! Updated: Fri 22 Aug 2014 21:59:06 CEST by bart@burgberg
+! Updated: Mon 24 Nov 2014 11:22:55 CET by bart@burgberg
 !---------------------------------------------------------------------------
 
 ! Settings
@@ -92,8 +92,8 @@ URxvt*fadeColor:                      black
 URxvt*cursorUnderline:                false
 URxvt*cursorBlink:                    true
 ! URxvt*pointerBlank:                   boolean
-URxvt*background:                     rgba:0000/0000/0000/cccc
-URxvt*foreground:                     white
+URxvt*background:                     rgba:2700/2800/2200/cccc
+URxvt*foreground:                     rgba:f800/f800/f000/ffff
 ! URxvt*colorBD:                        color
 ! URxvt*colorIT:                        color
 ! URxvt*colorUL:                        color
