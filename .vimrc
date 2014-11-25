@@ -1,7 +1,7 @@
 " Modeline and Notes ------------------- {{{
 "
 "   vim: set ft=vim ts=2 sw=2 tw=80 foldmethod=marker :
-"   Updated: Fri 22 Aug 2014 12:05:05 CEST by bart@burgberg
+"   Updated: Tue 25 Nov 2014 19:50:22 CET by bart@burgberg
 "
 "   This .vimrc is largely inspired by the vimrc found in the GitHub
 "   repository of Steve Francia's Vim Distribution (spf13-vim)(spf13-vim/.vimrc)
@@ -297,9 +297,9 @@
 
     " Set the colour theme
     set background=dark
-    colorscheme molokai
     let g:molokai_original=0             " Use the dark background version instead of the original lighter background version
     let g:rehash256=1                    " Make the terminal version match the GUI version as close as possible
+    colorscheme molokai
 
     set backspace=indent,eol,start       " Backspace for dummies
     set linespace=0                      " No extra spaces between rows
