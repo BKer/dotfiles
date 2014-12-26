@@ -1,0 +1,113 @@
+# Sourced files depend on the folder being set
+set         folder          =       ~/.mail
+
+# Personal options
+set         realname        =       "Bart Kerkvliet"
+set         from            =       "bkerkvliet@gmail.com"
+
+# Include other settings files
+# GPG Support
+source      ~/.mutt/gpg_settings
+
+# Colours for smileys and stuff.
+source      ~/.mutt/color_profile
+# Set mutt theme to solarized dark.
+source /home/bart/.mutt/mutt-colors-solarized-dark-256.muttrc
+
+# Depends on the folder variable
+source      ~/.mutt/muttrc.mailboxes
+
+# Also add the local mail box
+mailboxes                   =       "+LocalMailBox" "+mu-search"
+set         spoolfile       =       +Gmail/INBOX
+
+# Cache
+set         header_cache    =       ~/.mutt/hcache
+set         message_cachedir =      ~/.mutt/cache
+
+# Mailcap, what files to open with what program
+set         mailcap_path    =       ~/.mutt/mailcap
+
+auto_view                           text/html
+alternative_order                   text/plain text/html
+
+### Mailing lists
+subscribe   announce@archlinux.org  arch-dev-public@archlinux.org   arch-general@archlinux.org
+
+# Character set on messages that we send
+set         send_charset    =       "utf-8"
+
+# Do not show all headers, just a few
+ignore      *
+unignore    From To Cc Bcc Date Subject
+# and in this order
+unhdr_order *
+hdr_order   From: To: Cc: Bcc: Date: Subject:
+
+# Main options -> alphabetic order
+  set       alias_format    =       "%4n %2f %t %-30a %r" 
+  set       beep_new
+unset       confirmappend
+  set       date_format     =       "%Y-%m-%d %H:%M"
+  set       delete
+  set       edit_headers    =       yes
+  set       forward_format  =       "Fwd: %s"
+  set       index_format    =       "%4C | %Z [%d] %-35.35F (%-4.4c) %s"  # Uses date_format
+  set       mail_check      =       0
+unset       mark_old
+unset       markers
+  set       mbox_type       =       Maildir
+unset       move
+  set       menu_scroll
+  set       pager_context   =       5
+  set       pager_index_lines =     10
+  set       pager_stop
+  set       pipe_decode
+  set       postponed       =       +[Gmail]/Drafts
+  set       query_command   =       "mu cfind --muhome=~/.mu-sent-index --format=mutt-ab '%s'"
+unset       record
+  set       sleep_time      =       0
+  set       sort            =       threads
+  set       sort_aux        =       reverse-last-date-received
+unset       sort_re
+  set       strict_threads  =       yes
+  set       thorough_search
+  set       tilde
+  set       timeout         =       3
+  set       tmpdir          =       ~/.mutt/tmp
+unset       wait_key
+
+## Custom headers
+# Request a read receipt
+my_hdr    Disposition-Notification-To: Bart Kerkvliet <bkerkvliet@gmail.com>
+
+## Shortcuts
+# Binds
+bind index gg first-entry
+bind index G last-entry
+bind pager gg top
+bind pager G bottom
+bind pager j next-line
+bind pager k previous-line
+# Macros
+macro index <f2> '<sync-mailbox><change-folder>+Gmail/INBOX<enter>'
+macro index <f3> '<sync-mailbox><change-folder>+LocalMailBox<enter>'
+macro index ,p "<pipe-message>cat > ~/" "save message as"
+macro index ,z "<shell-escape>offlineimap -q -o<return>" "sync IMAP"
+macro index zc "<collapse-thread>" "collapse thread"
+macro index <space> "<collapse-thread>" "uncollapse thread"
+
+macro index ,r \
+  "<tag-pattern>all<return><tag-prefix><clear-flag>N<untag-pattern>all<return>" \
+  "mark all as read"
+
+macro index ,R \
+  "<collapse-all>,r<collapse-all>" \
+  "mark all as read (collapsed)"
+
+## mu macros
+macro index ",s" "<enter-command>unset wait_key<enter><shell-escape>read -p'mu query: ' x; \
+      mu find --clearlinks --linksdir ~/.mail/mu-search --format links \$x<enter>\
+      <change-folder-readonly>~/.mail/mu-search\n" "mu find"
+macro index "<Esc>s" "<change-folder-readonly>~/.mail/mu-search\n" "display mu-find results"
+

@@ -1,0 +1,81 @@
+# Palette for use with the Linux console.  Black background.
+
+color hdrdefault blue black
+#color message brightred black
+#color markers red black
+#color index blue black ~F
+#color index red black "~N|~O"
+
+# color body brightwhite black '\*+[^*]+\*+'
+# color body brightwhite black '_+[^_]+_+'
+
+# Default colour
+color normal    white       black  # White letters on black background
+
+# Main colours
+color status    black       green
+color indicator brightwhite blue
+color tree      blue        black
+color error     brightred   black
+color message   brightgreen black
+
+#
+# message states
+#
+# order matters here since some states override others
+#
+# messages to me/self
+uncolor index "~P"
+  color index brightblack black "~P"
+
+# threads containing new messages
+uncolor index "~(~N)"
+  color index magenta black "~(~N)"
+
+# new messages themselves
+uncolor index "~N"
+  color index cyan black "~N"
+
+# tagged
+uncolor index "~T"
+  color index green black "~T"
+
+# deleted
+uncolor index "~D"
+  color index red black "~D"
+
+# set up the headers
+  color header green black "^from:"
+  color header yellow black "^to:"
+  color header yellow black "^cc:"
+  color header cyan black "^date:"
+  color header magenta black "^subject:"
+
+# message bodies
+  color attachment brightblack black
+  color search red black
+  color signature cyan black
+  color tilde white black
+
+# urls
+  color body blue black "(^|<| )mailto:[^ ]+@[^ ]( |>|$)"
+  color body blue black "(^|<| )(http|https|ftp|file|telnet|news|finger)://[^ ]+( |>|$)"
+
+  # smileys, the right way and the backward-ass euro way
+  color body brightmagenta black "(^| )+(|[<>|])[8;:](|[^ ])[)(/|DOPS]( |$)+"
+  color body brightmagenta black "(^| )+[)(/|DOPS](|[^ ])[8;:](|[<>|])( |$)+"
+
+  # *bold*, _underline_, and /italic/
+  color body brightcyan black "(^| )\\*[^*]+\\*( |$)"
+  color body brightcyan black "(^| )_[^_]+_( |$)"
+  color body brightcyan black "(^| )/[^/]+/( |$)"
+
+  # quote blocks
+  color quoted magenta black
+  color quoted1 cyan black
+  color quoted2 green black
+  color quoted3 yellow black
+  color quoted4 magenta black
+  color quoted5 cyan black
+  color quoted6 green black
+  color quoted7 yellow black
