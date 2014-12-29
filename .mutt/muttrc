@@ -74,7 +74,7 @@ unset       sort_re
   set       thorough_search
   set       tilde
   set       timeout         =       3
-  set       tmpdir          =       ~/.mutt/tmp
+#  set       tmpdir          =       ~/.mutt/tmp
 unset       wait_key
 
 ## Custom headers
