@@ -183,10 +183,12 @@ bindsym $mod+Shift+parenright move container to workspace "10: Misc"
 # Assign workspaces to instances, so they will always start on a pre-defined
 # workspace.
 assign [class="URxvt"] 1: Terminal
-assign [class="Gvim"] 2: Development
-assign [class="URxvt" instance="vim"] 2: Development
 assign [class="Eclipse"] 2: Development
+assign [class="jetbrains-idea-*"] 2: Development
+assign [class="Gvim"] 2: Development
 assign [class="Meld"] 2: Development
+assign [class="NetBeans *"] 2: Development
+assign [class="URxvt" instance="vim"] 2: Development
 assign [class="chromium"] 3: Internet
 assign [class="Chromium"] 3: Internet
 assign [class="Firefox"] 3: Internet
