@@ -1,7 +1,7 @@
 source      /etc/Muttrc.gpg.dist
 
 set pgp_use_gpg_agent  = yes
-set pgp_sign_as        = 0xCDB5D98E
+set pgp_sign_as        = 0x880A48D5
 set pgp_timeout        = 3600
 set crypt_autosign     = yes
 set crypt_replyencrypt = yes
