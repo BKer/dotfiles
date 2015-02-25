@@ -1,7 +1,7 @@
 " Modeline and Notes ------------------- {{{
 "
 "   vim: set ft=vim ts=2 sw=2 tw=80 foldmethod=marker :
-"   Updated: Tue 25 Nov 2014 19:50:22 CET by bart@burgberg
+"   Updated: Wed 25 Feb 2015 21:34:43 CET by bart@buckland
 "
 "   This .vimrc is largely inspired by the vimrc found in the GitHub
 "   repository of Steve Francia's Vim Distribution (spf13-vim)(spf13-vim/.vimrc)
@@ -119,6 +119,8 @@
     Bundle 'Shougo/neomru.vim'
     " NERDTree and tabs together in Vim
     Bundle 'jistr/vim-nerdtree-tabs'
+    " Nim support
+    Bundle 'zah/nimrod.vim'
 
     """"" O
     " Highlight replace matches
@@ -600,6 +602,19 @@
         let NERDTreeShowHidden=1
         let NERDTreeKeepTreeInNewTab=1
         let g:nerdtree_tabs_open_on_gui_startup=0
+    " }}}
+    " Nim ------------------------------ {{{
+        fun! JumpToDef()
+          if exists("*GotoDefinition_" . &filetype)
+            call GotoDefinition_{&filetype}()
+          else
+            exe "norm! \<C-]>"
+          endif
+        endf
+
+        " Jump to tag
+        nn <M-g> :call JumpToDef()<cr>
+        ino <M-g> <esc>:call JumpToDef()<cr>i
     " }}}
     " OmniComplete --------------------- {{{
         if has("autocmd") && exists("+omnifunc")
