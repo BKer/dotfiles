@@ -1,7 +1,7 @@
 " Modeline and Notes ------------------- {{{
 "
 "   vim: set ft=vim ts=2 sw=2 tw=80 foldmethod=marker :
-"   Updated: Wed 25 Feb 2015 21:34:43 CET by bart@buckland
+"   Updated: Sun 15 Mar 2015 19:32:16 CET by bart@buckland
 "
 "   This .vimrc is largely inspired by the vimrc found in the GitHub
 "   repository of Steve Francia's Vim Distribution (spf13-vim)(spf13-vim/.vimrc)
@@ -33,167 +33,189 @@
 " Bundles + Bundle Setup --------------- {{{
     filetype off                         " Required, set to on later
 
-    set rtp+=~/.vim/bundle/vundle/
-    call vundle#rc()
+    " Note: Skip initialization for vim-tiny or vim-small.
+    if !1 | finish | endif
+
+    if has('vim_starting')
+      if &compatible
+        set nocompatible               " Be iMproved
+      endif
+
+      " Required:
+      set runtimepath+=~/.vim/bundle/neobundle.vim/
+    endif
+
+    " Required:
+    call neobundle#begin(expand('~/.vim/bundle/'))
+
+    " Let NeoBundle manage NeoBundle
+    " Required:
+    NeoBundleFetch 'Shougo/neobundle.vim'
 
     " Let Vundle manage Vundle (Required)
-    Bundle 'gmarik/vundle'
+    " Bundle 'gmarik/vundle'
 
     """"" A
     " Abolish (Easy search and replace) See ~/.vim/after/plugin/abolish.vim
-    Bundle 'tpope/vim-abolish.git'
+    NeoBundle 'tpope/vim-abolish.git'
     " Ack (Search in files)
-    Bundle 'mileszs/ack.vim'
+    NeoBundle 'mileszs/ack.vim'
     " Airline (Statusline)
-    Bundle 'bling/vim-airline'
+    NeoBundle 'bling/vim-airline'
 
     """"" B
     " Bufferline (Displays on Airline)
-    Bundle 'bling/vim-bufferline'
+    NeoBundle 'bling/vim-bufferline'
 
     """"" C
     " CSS3-Syntax (Adds css3 syntax support)
-    Bundle 'hail2u/vim-css3-syntax'
+    NeoBundle 'hail2u/vim-css3-syntax'
     " Coffee-Script (CoffeeScript support)
-    Bundle 'kchmck/vim-coffee-script'
+    NeoBundle 'kchmck/vim-coffee-script'
     " Adds color support for css files
-    Bundle 'gorodinskiy/vim-coloresque'
+    NeoBundle 'gorodinskiy/vim-coloresque'
     " Comment stuff out
-    Bundle 'tpope/vim-commentary'
+    NeoBundle 'tpope/vim-commentary'
 
     """"" D
     " Auto-completion for quotes, parens, brackets, etc.
-    Bundle 'Raimondi/delimitMate'
+    NeoBundle 'Raimondi/delimitMate'
 
     """"" E
     " EasyMotion <Leader><Leader>w, <L><L>gE, <L><L>t
-    Bundle 'Lokaltog/vim-easymotion'
+    NeoBundle 'Lokaltog/vim-easymotion'
     " Editor Config, reads the editorconfig file to set the editor
     " settings.
-    Bundle 'editorconfig/editorconfig-vim'
+    NeoBundle 'editorconfig/editorconfig-vim'
 
     """"" F
     " Fugitive (Git)
-    Bundle 'tpope/vim-fugitive'
+    NeoBundle 'tpope/vim-fugitive'
 
     """"" G
     " greplace (Replace across files/buffers)
-    Bundle 'vim-scripts/greplace.vim'
+    NeoBundle 'vim-scripts/greplace.vim'
 
     """"" H
     " HTML-AutoCloseTag (Automatically close HTML tags)
-    Bundle 'amirh/HTML-AutoCloseTag'
+    NeoBundle 'amirh/HTML-AutoCloseTag'
 
     """"" I
     " Indent Guides (Show indents with some colour)
-    Bundle 'nathanaelkane/vim-indent-guides'
+    NeoBundle 'nathanaelkane/vim-indent-guides'
 
     """"" J
     " Javascript (Syntax and indent plugin)
-    Bundle 'pangloss/vim-javascript'
+    NeoBundle 'pangloss/vim-javascript'
     " JSON support
-    Bundle 'elzr/vim-json'
+    NeoBundle 'elzr/vim-json'
     " JST/EJS syntax
-    Bundle 'briancollins/vim-jst'
+    NeoBundle 'briancollins/vim-jst'
 
     """"" K
 
     """"" L
     " LaTeX (vim-LaTeX)
-    Bundle 'jcf/vim-latex'
+    NeoBundle 'jcf/vim-latex'
 
     """"" M
     " Markdown
-    Bundle 'tpope/vim-markdown'
+    NeoBundle 'tpope/vim-markdown'
     " Matchit (extended % matching for HTML, LaTeX, and many other languages)
-    Bundle 'matchit.zip'
+    NeoBundle 'matchit.zip'
     " Molokai Colourscheme
-    Bundle 'tomasr/molokai'
+    NeoBundle 'tomasr/molokai'
     " Multiple cursors
-    Bundle 'terryma/vim-multiple-cursors'
+    NeoBundle 'terryma/vim-multiple-cursors'
 
     """"" N
     " NerdTree (File explorer)
-    Bundle 'scrooloose/nerdtree'
+    NeoBundle 'scrooloose/nerdtree'
     " neomru (recently used files)
-    Bundle 'Shougo/neomru.vim'
+    NeoBundle 'Shougo/neomru.vim'
     " NERDTree and tabs together in Vim
-    Bundle 'jistr/vim-nerdtree-tabs'
+    NeoBundle 'jistr/vim-nerdtree-tabs'
     " Nim support
-    Bundle 'zah/nimrod.vim'
+    NeoBundle 'zah/nimrod.vim'
 
     """"" O
     " Highlight replace matches
-    Bundle 'osyo-manga/vim-over'
+    NeoBundle 'osyo-manga/vim-over'
 
     """"" P
     " PHP-namespace (PHP support)
-    Bundle 'arnaud-lb/vim-php-namespace'
+    NeoBundle 'arnaud-lb/vim-php-namespace'
     " PIV (PHP support)
-    Bundle 'spf13/PIV'
+    NeoBundle 'spf13/PIV'
 
     """"" Q
 
     """"" R
     " Repeat.vim (Allow to repeat plugin actions)
-    Bundle 'tpope/vim-repeat'
+    NeoBundle 'tpope/vim-repeat'
     " Restore views
-    Bundle 'vim-scripts/restore_view.vim'
+    NeoBundle 'vim-scripts/restore_view.vim'
 
     """"" S
     " Session management
-    Bundle 'vim-scripts/sessionman.vim'
+    NeoBundle 'vim-scripts/sessionman.vim'
     " Signify (Show changes in files compared to the last commit via vim its
     " sign column)
-    Bundle 'mhinz/vim-signify'
+    NeoBundle 'mhinz/vim-signify'
     " Snippets
-    Bundle 'honza/vim-snippets'
+    NeoBundle 'honza/vim-snippets'
     " Solarized Colorscheme
-    Bundle 'altercation/vim-colors-solarized'
+    NeoBundle 'altercation/vim-colors-solarized'
     " surround: quoting/parenthesizing made simple
-    Bundle 'tpope/vim-surround'
+    NeoBundle 'tpope/vim-surround'
     " Syntastic (Syntax checking)
-    Bundle 'scrooloose/syntastic'
+    NeoBundle 'scrooloose/syntastic'
 
     """" T
     " Tabluar (Aligning text)
-    Bundle 'godlygeek/tabular'
+    NeoBundle 'godlygeek/tabular'
     " Tagbar (Tags)
-    Bundle 'majutsushi/tagbar'
+    NeoBundle 'majutsushi/tagbar'
     " TLib
-    Bundle 'tomtom/tlib_vim'
+    NeoBundle 'tomtom/tlib_vim'
 
     """"" U
     " UltiSnips (Snippets)
-    Bundle 'SirVer/ultisnips'
+    NeoBundle 'SirVer/ultisnips'
     " UndoTree (Visualize undo-tree)
-    Bundle 'mbbill/undotree'
+    NeoBundle 'mbbill/undotree'
     " Unimpaired
-    Bundle 'tpope/vim-unimpaired'
+    NeoBundle 'tpope/vim-unimpaired'
     " Unite (Would benefit from vimproc?)
-    Bundle 'Shougo/unite.vim'
+    NeoBundle 'Shougo/unite.vim'
 
     """"" V
     " Vim-addon-mw-utils
-    Bundle 'MarcWeber/vim-addon-mw-utils'
+    NeoBundle 'MarcWeber/vim-addon-mw-utils'
     " vimproc.vim (Needs compiling! [make])
-    Bundle 'Shougo/vimproc.vim'
+    NeoBundle 'Shougo/vimproc.vim'
     " Multi-language DBGP debugger client for Vim (PHP, Python, Perl, Ruby, etc.)
-    Bundle 'joonty/vdebug.git'
+    NeoBundle 'joonty/vdebug.git'
 
     """"" W
     " WebAPI support
-    Bundle 'mattn/webapi-vim'
+    NeoBundle 'mattn/webapi-vim'
     " Wordy check misused or overly used words
-    Bundle 'reedes/vim-wordy'
+    NeoBundle 'reedes/vim-wordy'
 
     """"" X
 
     """"" Y
     " Completion
-    Bundle 'Valloric/YouCompleteMe'
+    NeoBundle 'Valloric/YouCompleteMe'
 
     """"" Z
+
+    call neobundle#end()
+
+    " If there are uninstalled bundles found on startup,
+    " this will conveniently prompt you to install them.
+    NeoBundleCheck
 "}}}
 " General ------------------------------ {{{
     " Set default encoding
