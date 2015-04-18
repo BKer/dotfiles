@@ -32,3 +32,5 @@
   algorithm = patience
 [push]
   default = simple
+[help]
+	autocorrect = 5
