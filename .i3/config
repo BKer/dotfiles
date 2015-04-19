@@ -184,6 +184,8 @@ bindsym $mod+Shift+parenright move container to workspace "10: Misc"
 # workspace.
 assign [class="URxvt"] 1: Terminal
 assign [class="Eclipse"] 2: Development
+assign [class="emacs"] 2: Development
+assign [class="Emacs"] 2: Development
 assign [class="jetbrains-idea-*"] 2: Development
 assign [class="Gvim"] 2: Development
 assign [class="Meld"] 2: Development
