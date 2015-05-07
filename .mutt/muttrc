@@ -85,10 +85,13 @@ my_hdr    Disposition-Notification-To: Bart Kerkvliet <bkerkvliet@gmail.com>
 # Binds
 bind index gg first-entry
 bind index G last-entry
+bind index Y group-reply
 bind pager gg top
 bind pager G bottom
 bind pager j next-line
 bind pager k previous-line
+bind pager Y group-reply
+
 # Macros
 macro index <f2> '<sync-mailbox><change-folder>+Gmail/INBOX<enter>'
 macro index <f3> '<sync-mailbox><change-folder>+LocalMailBox<enter>'
