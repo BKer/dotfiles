@@ -109,7 +109,7 @@ URxvt*pointerColor:                   black
 URxvt*pointerColor2:                  white
 ! URxvt*borderColor:                    color
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=9:,xft:PowerlineSymbols:size=9
+URxvt*font:                           xft:DejaVu\ Sans\ Mono\ for\ Powerline:size=10:,xft:PowerlineSymbols:size=10
 ! URxvt*boldFont:                       fontname
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname
