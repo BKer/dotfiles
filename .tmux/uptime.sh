@@ -1,26 +1,28 @@
 #!/bin/sh
-uptime=`uptime -p`
-count=`uptime -p | tr -s " " "\012" | wc -l`
-set -- junk $uptime
-shift
+totalseconds=`cat /proc/uptime | cut -d"." -f1 | cut -d "," -f1`
 
-if [ $count -eq 3 ]
-then
-    echo "00:$2"
+minute=$((60))
+hour=$((60*minute))
+day=$((24*hour))
+
+# Round bracket madness!
+days=$(($totalseconds/$day)) # Calculate days
+hours=$((($totalseconds-($days*$day))/$hour)) # Total - MinutesDay / Hour
+minutes=$((($totalseconds-($day*$days)-($hours*$hour))/$minute)) # Total - MinutesDay - MinutesHour / minute
+
+
+# Quick dirty padding fix.
+if [ $hours -lt 10 ] ; then
+  hours="0"$hours
+fi
+if [ $minutes -lt 10 ] ; then
+  minutes="0"$minutes
 fi
 
-if [ $count -eq 5 ]
-  then
-      echo "$2:$4"
+output=''
+if [ $days -ne 0 ] ; then
+  output=$days"d "$hours:$minutes
+else
+  output=$hours:$minutes
 fi
-
-if [ $count -eq 7 ]
-then
-    echo "$2d $4:$6"
-fi
-
-if [ $count -eq 9 ]
-then
-    # 2 weeks, 4 days, 6 hours, 8 minutes
-    echo "$((7*$2 + $4))d $6:$8"
-fi
+echo $output
