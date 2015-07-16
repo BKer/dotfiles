@@ -8,3 +8,4 @@ Session.vim
 tmp/
 hcache
 muttrc.mailboxes
+.tmux/gcalcli.cal
