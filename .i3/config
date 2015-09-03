@@ -67,7 +67,7 @@ bindsym $mod+Return exec urxvtc
 bindsym $mod+Shift+w exec firefox
 
 # $mod + Shift + E starts a mail client
-bindsym $mod+Shift+m exec urxvt -e mutt
+bindsym $mod+Shift+m exec urxvtc -name mutt -e mutt
 
 # kill focused window
 bindsym $mod+Shift+Q kill
