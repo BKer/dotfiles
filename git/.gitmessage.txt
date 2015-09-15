@@ -1,7 +1,14 @@
-Summary line
+# If applied, this commit will...
+Summary line (50 characters max, should not end with a period)
 
-What happened
+What happened (wrap at 72 characters)
 
-[Ticket: X]
+[DocImpact]
+[APIImpact]
+[SecurityImpact]
+[UpgradeImpact]
+[Closes-Bug: #123]
+[Partial-Bug: #123]
+[Related-Bug: #123]
 
 Signed-off-by: Bart Kerkvliet <bkerkvliet@gmail.com>
