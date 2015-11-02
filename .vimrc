@@ -1,7 +1,7 @@
 " Modeline and Notes ------------------- {{{
 "
 "   vim: set ft=vim ts=2 sw=2 tw=80 foldmethod=marker :
-"   Updated: Sun 15 Mar 2015 19:32:16 CET by bart@buckland
+"   Updated: Thu 29 Oct 2015 10:05:31 CET by bart@burgberg
 "
 "   This .vimrc is largely inspired by the vimrc found in the GitHub
 "   repository of Steve Francia's Vim Distribution (spf13-vim)(spf13-vim/.vimrc)
@@ -87,6 +87,8 @@
     " Editor Config, reads the editorconfig file to set the editor
     " settings.
     NeoBundle 'editorconfig/editorconfig-vim'
+    NeoBundle 'elixir-lang/vim-elixir'
+    NeoBundle 'jimenezrick/vimerl'
 
     """"" F
     " Fugitive (Git)
