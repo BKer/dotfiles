@@ -28,6 +28,7 @@ exec --no-startup-id xcompmgr -F &  # Enable fancy effects (slightly transparent
 #exec --no-startup-id sh ~/Scripts/randomWallpaper.sh & # Cycle through different wallpapers
 exec --no-startup-id xautolock -time 10 -locker '/home/bart/Scripts/lockScreen.sh' & # Lock the screen after 10 minutes of inactivity
 exec --no-startup-id /usr/bin/start-pulseaudio-x11 & # Start pulseaudio daemon
+exec --no-startup-id /usr/bin/syndaemon -t -k -i 2 -d # Disable mousepad tapping after key press.
 
 # Open a vim instance named scratchpad. Load the file ~/.Scratchpad
 # I've disabled the swap file, so vim won't complain about an existing swap
@@ -74,8 +75,8 @@ bindsym $mod+Shift+Q kill
 
 # start dmenu (a program launcher)
 # I think the $mod+Shift+d version kinda stinks, so hardly use it.
-#bindsym $mod+d exec --no-startup-id dmenu_run -nb "#000000" -nf "#ffffff" -sb "#000000" -sf "#1793D0" -p "Run: " -b -fn -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
-bindsym $mod+d exec --no-startup-id rofi -width 100% -lines 1 -columns 20 -terminal urxvtc -location 6 -show run -fuzzy -fg "#999999" -bg "#000000" -bc "#333333" -bw 0 -hlfg "#ffffff" -hlbg "#1793d0" -font misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1\ 10 -padding 0
+bindsym $mod+d exec --no-startup-id dmenu_run -nb "#000000" -nf "#ffffff" -sb "#000000" -sf "#1793D0" -p "Run: " -b -fn -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1
+#bindsym $mod+d exec --no-startup-id rofi -width 100% -lines 1 -columns 20 -terminal urxvtc -location 6 -show run -fuzzy -fg "#999999" -bg "#000000" -bc "#333333" -bw 0 -hlfg "#ffffff" -hlbg "#1793d0" -font misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1\ 10 -padding 0
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -nb "#000000" -nf "#ffffff" -sb "#000000" -sf "#1793D0" -p "Run: " -b -fn -misc-fixed-medium-r-normal--14-130-75-75-c-70-iso8859-1'
 
 # Power settings
